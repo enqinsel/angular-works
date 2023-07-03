@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Şifre Oluşturucu</h2>
+  <div class="check">
+    <div class="length">
+      <label for="">Şifre Uzunluğu</label>
+      <input type="text" (change)="modifyLenght(($any($event.target).value))">
+    </div>
+    <div class="alphabet">
+      <label for="alphabetInput">Alfabeyi Kullan</label>
+      <input id="alphabetInput" (change)="modifyLetters()" type="checkbox">
+    </div>
+    <div class="numberInput">
+      <label for="numberInput">Sayıları Kullan</label>
+      <input id="numberInput" (change)="modifyNumbers()" type="checkbox">
+    </div>
+    <div class="symbol">
+      <label for="symbolInput">Sembolleri Kullan</label>
+      <input id="symbolInput" (change)="modifySymbols()" type="checkbox">
+    </div>
+  </div>
+  <button (click)="createHandler()" [disabled]="!(length && (includeLetters || includeNumbers || includeSymbols))">Oluştur</button>
+
+  <div class="showPassword" *ngIf="password">
+    <span>Şifreniz: </span>
+      <textarea style="resize: none;"  cols="30" rows="1" readonly>{{password}}</textarea>
+  </div>
+
+</div>
