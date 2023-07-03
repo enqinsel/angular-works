@@ -1,0 +1,48 @@
+<div class="container">
+  <nav>
+    <ul class="pagination paginationUl">
+      <li class="page-item" [ngClass]="currentPage === 0 ? 'disabled':''">
+        <a class="page-link" (click)="currentPage = currentPage - 1 ">Önceki</a>
+      </li>
+
+      <ng-container *ngFor="let image of images; let i = index">
+        <!-- [ngClass]="{active:i === currentPage}" -->
+        <li class="page-item" [ngClass]="i === currentPage ? 'active':'passive' "
+          *ngIf="pageIndex(i)">
+          <a class="page-link" (click)="currentPage = i">{{i +1 }}</a>
+        </li>
+      </ng-container>
+
+      <li class="page-item" [ngClass]="currentPage === (images.length - 1) ? 'disabled':''">
+        <a class="page-link" (click)="currentPage = currentPage + 1 ">Sonraki</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="mainImg">
+    <h4 appFirst [backgroundColor]="'black'" class="text-white">{{images[currentPage].title}}</h4>
+    <img style="max-height: 500px;" [src]="images[currentPage].url">
+  </div>
+
+  <div [ngSwitch]="currentPage">
+    <div *ngSwitchCase="0">
+      ilk sayfadasın
+    </div>
+    <div *ngSwitchCase="1">
+      İkinci sayfadasın
+    </div>
+    <div *ngSwitchCase="2">
+      Üçüncü sayfadasın
+    </div>
+    <div *ngSwitchCase="3">
+      Dördüncü sayfadasın
+    </div>
+    <div *ngSwitchCase="4">
+      Beşinci sayfadasın
+    </div>
+    <div *ngSwitchDefault>
+      Default
+    </div>
+  </div>
+
+</div>
