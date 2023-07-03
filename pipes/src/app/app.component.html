@@ -1,0 +1,75 @@
+<div class="container">
+
+  <div class="row">
+    <h3>Fatura</h3>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label><b>İsim</b></label>
+      <input type="text" (input)="onNameChange($any($event.target).value)" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label><b>İsim</b></label>
+      <p>{{name | titlecase}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label><b>Ödeme Tarihi</b></label>
+      <input type="date" (input)="onDateChange($any($event.target).value)" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label><b>Date</b></label>
+      <p>{{date | date:'MMMM d, y'}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label><b>Tutar</b></label>
+      <input type="text" (input)="onCurrencyChange($any($event.target).value)" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label><b>Tutar</b></label>
+      <p>{{currency | currency: 'TRY'}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label><b>Boy</b></label>
+      <input type="text" (input)="onHeightChange($any($event.target).value)" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label><b>Boy</b></label>
+      <p>{{height | number: '1.1-2'}}</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label><b>Mil</b></label>
+      <input type="text" (input)="onMilesChange($any($event.target).value)" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label><b>Kilometre</b></label>
+      <p>{{miles | convert: 'm'}}</p>
+    </div>
+  </div>
+
+</div>
+
+{{lessons.name | json}}
+
